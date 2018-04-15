@@ -65,16 +65,18 @@ public class LoginServlet extends HttpServlet {
 	    String grade=request.getParameter(User.GRADE);
 	    String notice=request.getParameter(User.NOTICE);
 	    String clsses=request.getParameter(User.CLSSES);
-        User u=new User(user,password);
-        User r=new User(user,password,name,school,number,identity,grade,clsses);
-        User n=new User(user,notice,"1");
+        User u=new User(user,password);             //登陆
+        User r=new User(user,password,name,school,number,identity,grade,clsses);          //注册
+        User n=new User(user,notice,"1");          //发布公告
+        User p=new User(user,number,"1","1");        //确认信息
+        User w=new User(user,number,password,"1","1");   //修改密码
         if(status.equals("1")){
-		boolean st = UserDAO.isLoginOK(u);        
-        if(st){
-        	out.println("OK");
-		}else{
-            out.println("Wrong");
-        }
+		    boolean st = UserDAO.isLoginOK(u);        
+            if(st){
+        	    out.println("OK");
+		    }else{
+                out.println("Wrong");
+		    }
         }else if(status.equals("0")){
         	boolean st = UserDAO.isRegisterOK(r);        
             if(st){
@@ -86,6 +88,27 @@ public class LoginServlet extends HttpServlet {
         	boolean st = UserDAO.isNoticeOK(n);        
             if(st){
             	out.println("OK");
+    		}else{
+                out.println("Wrong");
+            }
+        }else if(status.equals("3")){
+        	boolean st=UserDAO.isSelectUserOk(user);
+        	if(st){
+        		out.println("OK");
+    		}else{
+                out.println("Wrong");
+            }
+        }else if(status.equals("4")){
+        	boolean st=UserDAO.isSelectNumberOk(p);
+        	if(st){
+        		out.println("OK");
+    		}else{
+                out.println("Wrong");
+            }
+        }else if(status.equals("5")){
+        	boolean st=UserDAO.isPasswordOk(w);
+        	if(st){
+        		out.println("OK");
     		}else{
                 out.println("Wrong");
             }

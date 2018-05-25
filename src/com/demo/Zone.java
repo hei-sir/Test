@@ -8,6 +8,7 @@ public class Zone {
 	public static String CONTENT="content";
 	public static String AAA="aaa";
 	public static String IMAGEPATH="imagePath";
+	public static String IMAGE="image";
 	
 	private int id;
     private String username;
@@ -16,6 +17,15 @@ public class Zone {
     private String content;
     private int imageId;
     private String imagePath;
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+    
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public String getImagePath() {
         return imagePath;

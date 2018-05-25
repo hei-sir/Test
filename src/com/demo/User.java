@@ -81,6 +81,12 @@ public class User{
 	    	this.number=number;
 	    	this.password=password;
 	    }
+	    public User(String identity,String school,String grade,String clsses,String a,String b,String c){
+	    	this.identity=identity;
+	    	this.school=school;
+	    	this.grade=grade;
+	    	this.clsses=clsses;
+	    }
 	    
 	    public User(String user,String notice,String a){
 	      	this.user=user;

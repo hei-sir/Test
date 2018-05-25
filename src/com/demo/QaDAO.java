@@ -177,8 +177,9 @@ public class QaDAO {
 			pstmt.setString(2, z.getUsername());
 			pstmt.setString(3, z.getName());
 			pstmt.setString(4, z.getTime());
-			pstmt.setString(5, z.getImagePath());
-			pstmt.setString(6, z.getContent());						
+			pstmt.setBytes(5, z.getImage());
+			pstmt.setString(6, z.getContent());	
+			pstmt.setString(7, z.getImagePath());							
 			
 			rs1 = pstmt.execute();
 			

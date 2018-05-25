@@ -55,11 +55,12 @@ public class QaUpServlet extends HttpServlet {
         String name = request.getParameter(Zone.NAME);
         String username = request.getParameter(Zone.USERNAME);
         String imagePath=request.getParameter(Zone.IMAGEPATH);
+        String image=request.getParameter(Zone.IMAGE);
         Zone z=new Zone(username,name,time,content,imagePath);
         Qa q= new Qa(sname,tname,time,content,status);
         Qa a=new Qa(sname,tname,time,content,answer,status);
         if(aaa.equals("0")){
-    		boolean st = QaDAO.isQaOK(q);                      //家长新建答案
+    		boolean st = QaDAO.isQaOK(q);                      //家长新建问题
             if(st){
             	out.println("OK");
     		}else{

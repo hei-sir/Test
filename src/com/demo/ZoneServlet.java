@@ -62,7 +62,8 @@ public class ZoneServlet extends HttpServlet {
 	                 System.out.println(bean.getContent());
 	            	 obj.put("content", bean.getContent());
 	                 obj.put("imagePath", bean.getImagePath());
-	                 obj.put("time", bean.getTime());	                 	                 
+	                 obj.put("time", bean.getTime());	  
+	                 obj.put("image", bean.getImage());
 	                 
 	                 
 	             }
@@ -120,7 +121,8 @@ public class ZoneServlet extends HttpServlet {
 				    u.setName(rs.getString("name"));
 				    u.setContent(rs.getString("content"));
 				    u.setTime(rs.getString("time"));
-				    u.setImagePath(rs.getString("imagePath"));				  				   
+				    u.setImagePath(rs.getString("imagePath"));	
+				    u.setImage(rs.getBytes("image"));
 				
 				 Zone Zone1=new Zone();
 				 Zone1.setId(u.getId());
@@ -128,7 +130,8 @@ public class ZoneServlet extends HttpServlet {
 				    Zone1.setName(u.getName());
 			        Zone1.setContent(u.getContent());
 			        Zone1.setTime(u.getTime());
-			        Zone1.setImagePath(u.getImagePath());			      		        
+			        Zone1.setImagePath(u.getImagePath());
+			        Zone1.setImage(u.getImage());
 			        list.add(Zone1);
 				}while(rs.next());
 				

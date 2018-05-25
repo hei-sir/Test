@@ -70,6 +70,7 @@ public class LoginServlet extends HttpServlet {
         User n=new User(user,notice,"1");          //发布公告
         User p=new User(user,number,"1","1");        //确认信息
         User w=new User(user,number,password,"1","1");   //修改密码
+        User i=new User(identity,school,grade,clsses,"","","");
         if(status.equals("1")){
 		    boolean st = UserDAO.isLoginOK(u);        
             if(st){
@@ -78,12 +79,23 @@ public class LoginServlet extends HttpServlet {
                 out.println("Wrong");
 		    }
         }else if(status.equals("0")){
-        	boolean st = UserDAO.isRegisterOK(r);        
-            if(st){
-            	out.println("OK");
-    		}else{
-                out.println("Wrong");
-            }
+        	boolean sts=UserDAO.isSelectUserOk(user);
+        	boolean stn=UserDAO.isSelectNumOk(number);
+        	boolean sti=UserDAO.isSelectIdOk(i);
+        	if(sts){
+        		out.println("Wrong");        //提示用户名已存在
+        	}else if(stn){
+        		out.println("WrongNum");      //提示学号/工号已存在
+        	}else if(sti){
+        		out.println("WrongId");      //提示该班级已存在班主任注册
+        	}else{
+        		boolean st = UserDAO.isRegisterOK(r);        
+                if(st){
+            	    out.println("OK");
+    		    }else{
+                    out.println("Wrong");
+    		    }
+        	}
         }else if(status.equals("2")){
         	boolean st = UserDAO.isNoticeOK(n);        
             if(st){

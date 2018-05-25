@@ -72,6 +72,63 @@ public class UserDAO {
 			}
 	    }
 	    
+	    public static boolean isSelectNumOk(String number){      //µ¥¶À²éÑ§ºÅ
+	    	Connection conn = null;
+			ResultSet rs = null;
+			PreparedStatement pstmt=null;
+	        String driver="com.mysql.jdbc.Driver";
+	        String sql="select * from user where number = ?";
+	        int rows=0;
+	        try {
+				
+				Class.forName("com.mysql.jdbc.Driver").newInstance();
+				
+				conn =DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/link?" +
+					                                   "user=root&password=");
+				//3.3 
+				
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, number);		
+				
+				
+				
+				
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					rows++;
+				}
+				
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally{
+				if(pstmt!=null){
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						pstmt=null;
+					}
+				}
+				if(conn!=null){
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						conn=null;
+					}
+				}
+			}
+			if(rows>0){
+				return true;
+			}else{
+				return false;
+			}
+	    } 
+	    
 	    public static boolean isSelectUserOk(String userid){
 	    	Connection conn = null;
 			ResultSet rs = null;
@@ -147,6 +204,65 @@ public class UserDAO {
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setString(1, p.getUser());		
 				pstmt.setString(2, p.getNumber());
+				
+				
+				
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					rows++;
+				}
+				
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally{
+				if(pstmt!=null){
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						pstmt=null;
+					}
+				}
+				if(conn!=null){
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						conn=null;
+					}
+				}
+			}
+			if(rows>0){
+				return true;
+			}else{
+				return false;
+			}
+	    }
+	    
+	    public static boolean isSelectIdOk(User i){
+	    	Connection conn = null;
+			ResultSet rs = null;
+			PreparedStatement pstmt=null;
+	        String driver="com.mysql.jdbc.Driver";
+	        String sql="select * from user where identity = ? and grade=? and school=? and clsses=?";
+	        int rows=0;
+	        try {
+				
+				Class.forName("com.mysql.jdbc.Driver").newInstance();
+				
+				conn =DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/link?" +
+					                                   "user=root&password=");
+				//3.3 
+				
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, i.getIdentity());		
+				pstmt.setString(2, i.getGrade());
+				pstmt.setString(3, i.getSchool());
+				pstmt.setString(4, i.getClsses());
 				
 				
 				

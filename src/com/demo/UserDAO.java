@@ -470,7 +470,7 @@ public class UserDAO {
 			}
 	        
 	        
-	        String sql="INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+	        String sql="INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 	        int row=0;
 	        try {
 				
@@ -491,7 +491,8 @@ public class UserDAO {
 				pstmt.setString(8, r.getGrade());
 				pstmt.setString(9, r.getClsses());
 				pstmt.setString(10,null);
-				pstmt.setString(11,null);			
+				pstmt.setString(11,null);	
+				pstmt.setString(12,r.getPhone());	
 				
 				rs1 = pstmt.execute();
 				

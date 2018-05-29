@@ -59,6 +59,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter(User.PASSWORD);
         String status=request.getParameter(User.STATUS);
         String name=request.getParameter(User.NAME);
+        String phone=request.getParameter(User.PHONE);
 	    String school=request.getParameter(User.SCHOOL);
 	    String number=request.getParameter(User.NUMBER);
 	    String identity=request.getParameter(User.IDENTITY);
@@ -66,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 	    String notice=request.getParameter(User.NOTICE);
 	    String clsses=request.getParameter(User.CLSSES);
         User u=new User(user,password);             //登陆
-        User r=new User(user,password,name,school,number,identity,grade,clsses);          //注册
+        User r=new User(user,password,name,phone,school,number,identity,grade,clsses);          //注册
         User n=new User(user,notice,"1");          //发布公告
         User p=new User(user,number,"1","1");        //确认信息
         User w=new User(user,number,password,"1","1");   //修改密码

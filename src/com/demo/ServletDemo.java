@@ -60,6 +60,7 @@ public class ServletDemo extends HttpServlet {
 	                 obj.put("user", bean.getUser());
 	                 obj.put("number", bean.getNumber());
 	            	 obj.put("name", bean.getName());
+	            	 obj.put("phone",bean.getPhone());
 	                 obj.put("school", bean.getSchool());
 	                 obj.put("grade", bean.getGrade());
 	                 obj.put("clsses", bean.getClsses());	                 
@@ -121,6 +122,7 @@ public class ServletDemo extends HttpServlet {
 						u.setId(rs.getInt("id"));
 						u.setPassword(rs.getString("password"));
 					    u.setName(rs.getString("name"));
+					    u.setPhone(rs.getString("phone"));
 					    u.setIdentity(rs.getString("identity"));
 					    u.setSchool(rs.getString("school"));
 					    u.setGrade(rs.getString("grade"));
@@ -135,6 +137,7 @@ public class ServletDemo extends HttpServlet {
 					 user1.setPassword(u.getPassword());
 					    user1.setUser(u.getUser());
 				        user1.setName(u.getName());
+				        user1.setPhone(u.getPhone());
 				        user1.setIdentity(u.getIdentity());
 				        user1.setSchool(u.getSchool());
 				        user1.setGrade(u.getGrade());

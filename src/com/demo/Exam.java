@@ -30,7 +30,7 @@ public class Exam {
     
     public Exam(){ }
 
-    public Exam(int id,int chinese,int math,int english,int politics,int physics,int chemical,int score,String examId,String userId,String name,String rank,String time){
+    public Exam(int chinese,int math,int english,int politics,int physics,int chemical,int score,String examId,String userId,String name,String rank,String time){
     	this.id=id;
         this.chinese=chinese;
         this.math=math;

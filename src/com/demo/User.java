@@ -8,6 +8,7 @@ public class User{
 	    public static String PASSWORD = "password";
 	    public static String STATUS="status";
 	    public static String NAME="name";
+	    public static String PHONE = "phone";
 	    public static String SCHOOL="school";
 	    public static String NUMBER="number";
 	    public static String IDENTITY="identity";
@@ -41,12 +42,14 @@ public class User{
 	    private String clsses;
 	    private String notice;
 	    private String photo;
+	    private String phone;
 	    
-	    public User(int id,String user, String password,String name,String school,String number,String identity,String grade,String clsses,String notice,String photo){
+	    public User(int id,String user, String password,String name,String phone,String school,String number,String identity,String grade,String clsses,String notice,String photo){
 	      	this.id=id;
 	    	this.user=user;
 	    	this.password=password;
 	    	this.name=name;
+	    	this.phone=phone;
 	    	this.school=school;
 	    	this.number=number;
 	    	this.identity=identity;
@@ -56,10 +59,11 @@ public class User{
 	    	 this.photo=photo;
 	    }
 	    
-	    public User(String user, String password,String name,String school,String number,String identity,String grade,String clsses){
+	    public User(String user, String password,String name,String phone,String school,String number,String identity,String grade,String clsses){
 	      	this.user=user;
 	    	this.password=password;
 	    	this.name=name;
+	    	this.phone=phone;
 	    	this.school=school;
 	    	this.number=number;
 	    	this.identity=identity;
@@ -98,6 +102,14 @@ public class User{
 
 	    public void setNotice(String notice) {
 	        this.notice = notice;
+	    }
+	    
+	    public String getPhone() {
+	        return phone;
+	    }
+
+	    public void setPhone(String phone) {
+	        this.phone = phone;
 	    }
 
 	    public String getGrade() {
